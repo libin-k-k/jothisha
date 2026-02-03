@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Jothisa 💙</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'cormorant': ['Cormorant Garamond', 'serif'],
+                        'playfair': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'primary-blue': '#1e3a5f',
+                        'accent-blue': '#4a90d9',
+                        'soft-blue': '#7eb8da',
+                        'dark-bg': '#0d1520',
+                        'mid-dark': '#152238',
+                        'rose': '#e8b4b8',
+                        'gold': '#d4af37',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a5f;
+            --accent-blue: #4a90d9;
+            --soft-blue: #7eb8da;
+            --dark-bg: #0d1520;
+            --mid-dark: #152238;
+            --rose: #e8b4b8;
+            --gold: #d4af37;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--dark-bg);
+            color: #e8e8e8;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Floating hearts background */
+        .floating-svg {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .heart-1 { top: 10%; left: 5%; animation: float 8s ease-in-out infinite; }
+        .heart-2 { top: 20%; right: 10%; animation: float 10s ease-in-out infinite 2s; }
+        .heart-3 { bottom: 30%; left: 15%; animation: float 9s ease-in-out infinite 1s; }
+        .heart-4 { bottom: 20%; right: 5%; animation: float 11s ease-in-out infinite 3s; }
+        .heart-5 { top: 50%; left: 3%; animation: float 7s ease-in-out infinite 0.5s; }
+        .heart-6 { top: 70%; right: 15%; animation: float 12s ease-in-out infinite 2.5s; }
+        .heart-7 { top: 15%; right: 30%; animation: float 6s ease-in-out infinite 1.5s; }
+        .heart-8 { bottom: 40%; left: 25%; animation: float 9.5s ease-in-out infinite 2s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                backdrop-filter: blur(0px);
+            }
+            to {
+                opacity: 1;
+                backdrop-filter: blur(10px);
+            }
+        }
+
+        @keyframes boxOpen {
+            0% {
+                transform: scale(0.3) rotateY(-90deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05) rotateY(10deg);
+            }
+            100% {
+                transform: scale(1) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+        }
+
+        .modal-backdrop {
+            animation: modalFadeIn 0.4s ease-out forwards;
+        }
+
+        .modal-content {
+            animation: boxOpen 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+
+        .modal-heart {
+            animation: heartBeat 1.5s ease-in-out infinite;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 600;
+            color: var(--soft-blue);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .birthday-text {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            color: var(--rose);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .hero .name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--rose) 50%, var(--gold) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite, fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+
+
+        /* Stars decoration */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: starTwinkle 2s ease-in-out infinite;
+        }
+
+        .star:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+        .star:nth-child(2) { top: 25%; right: 15%; animation-delay: 0.5s; }
+        .star:nth-child(3) { top: 40%; left: 10%; animation-delay: 1s; }
+        .star:nth-child(4) { top: 60%; right: 25%; animation-delay: 1.5s; }
+        .star:nth-child(5) { top: 75%; left: 30%; animation-delay: 2s; }
+        .star:nth-child(6) { top: 20%; left: 50%; animation-delay: 0.3s; }
+        .star:nth-child(7) { top: 55%; left: 80%; animation-delay: 1.2s; }
+        .star:nth-child(8) { top: 85%; right: 40%; animation-delay: 0.8s; }
+
+        /* Tinder-style card stack */
+        .card-stack {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 520px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 640px) {
+            .card-stack {
+                height: 480px;
+            }
+        }
+
+        .quote-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            cursor: grab;
+            user-select: none;
+            transition: transform 0.1s ease-out;
+        }
+
+        .quote-card:active {
+            cursor: grabbing;
+        }
+
+        .quote-card.swiping {
+            transition: none;
+        }
+
+        .quote-card.removing {
+            transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+        }
+
+        .quote-card.swipe-right {
+            transform: translateX(150%) rotate(30deg) !important;
+            opacity: 0 !important;
+        }
+
+        .quote-card.swipe-left {
+            transform: translateX(-150%) rotate(-30deg) !important;
+            opacity: 0 !important;
+        }
+
+        /* Stack effect - cards behind */
+        .quote-card:nth-child(2) {
+            transform: scale(0.95) translateY(10px);
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .quote-card:nth-child(3) {
+            transform: scale(0.9) translateY(20px);
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .quote-card:nth-child(n+4) {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Active card is always on top */
+        .quote-card:first-child {
+            z-index: 10;
+        }
+
+        @keyframes cardEnter {
+            from {
+                transform: scale(0.8) translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Confetti burst on load */
+        @keyframes confetti {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating romantic SVGs -->
+    <svg class="floating-svg heart-1" width="40" height="40" viewBox="0 0 24 24" fill="none">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#4a90d9"/>
+    </svg>
+    <svg class="floating-svg heart-2" width="35" height="35" viewBox="0 0 24 24" fill="none">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#e8b4b8"/>
+    </svg>
+    <svg class="floating-svg heart-3" width="45" height="45" viewBox="0 0 24 24" fill="none">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#4a90d9"/>
+    </svg>
+    <svg class="floating-svg heart-4" width="30" height="30" viewBox="0 0 24 24" fill="none">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#d4af37"/>
+    </svg>
+    <svg class="floating-svg heart-5" width="38" height="38" viewBox="0 0 24 24" fill="none">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#7eb8da"/>
+    </svg>
+    <svg class="floating-svg heart-6" width="42" height="42" viewBox="0 0 24 24" fill="none">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#e8b4b8"/>
+    </svg>
+    <svg class="floating-svg heart-7" width="32" height="32" viewBox="0 0 24 24" fill="none">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#4a90d9"/>
+    </svg>
+    <svg class="floating-svg heart-8" width="36" height="36" viewBox="0 0 24 24" fill="none">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#7eb8da"/>
+    </svg>
+
+    <!-- Stars -->
+    <div class="stars">
+        <span class="star"></span><span class="star"></span><span class="star"></span>
+        <span class="star"></span><span class="star"></span><span class="star"></span>
+        <span class="star"></span><span class="star"></span>
+    </div>
+
+    <div class="content">
+        <section class="hero">
+            <h1>Happy Birthday</h1>
+            <p class="birthday-text">To the one who holds my heart</p>
+            <h2 class="name">Jothisa</h2>
+            <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-primary-blue/40 via-mid-dark/50 to-primary-blue/40 backdrop-blur-lg border border-accent-blue/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fadeInUp" style="animation-delay: 1s; animation-fill-mode: backwards;">
+                <svg class="w-5 h-5 text-soft-blue animate-pulse" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                </svg>
+                <span class="font-cormorant text-base sm:text-lg text-soft-blue">04 February 2006</span>
+                <span class="text-xl">💙</span>
+            </div>
+
+            <!-- Decorative SVG icons with glass effects -->
+            <div class="flex justify-center gap-3 sm:gap-4 flex-wrap mt-6 sm:mt-8 animate-fadeInUp" style="animation-delay: 0.6s; animation-fill-mode: backwards;">
+                <div class="group p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 hover:border-accent-blue/50 hover:bg-white/10 transition-all duration-300 hover:scale-110 hover:rotate-12">
+                    <svg class="w-10 h-10 sm:w-12 sm:h-12 text-accent-blue group-hover:text-rose transition-colors duration-300 drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </div>
+                <div class="group p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 hover:border-rose/50 hover:bg-white/10 transition-all duration-300 hover:scale-110 hover:rotate-12">
+                    <svg class="w-10 h-10 sm:w-12 sm:h-12 text-rose group-hover:text-gold transition-colors duration-300 drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                </div>
+                <div class="group p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 hover:border-accent-blue/50 hover:bg-white/10 transition-all duration-300 hover:scale-110 hover:rotate-12">
+                    <svg class="w-10 h-10 sm:w-12 sm:h-12 text-accent-blue group-hover:text-rose transition-colors duration-300 drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </div>
+                <div class="group p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 hover:border-gold/50 hover:bg-white/10 transition-all duration-300 hover:scale-110 hover:rotate-12">
+                    <svg class="w-10 h-10 sm:w-12 sm:h-12 text-gold group-hover:text-accent-blue transition-colors duration-300 drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                </div>
+                <div class="group p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 hover:border-soft-blue/50 hover:bg-white/10 transition-all duration-300 hover:scale-110 hover:rotate-12">
+                    <svg class="w-10 h-10 sm:w-12 sm:h-12 text-soft-blue group-hover:text-rose transition-colors duration-300 drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message with glass effect -->
+        <div class="relative group max-w-2xl mx-auto">
+            <!-- Glass container -->
+            <div class="relative p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-md border border-white/20 hover:border-soft-blue/40 transition-all duration-500 shadow-xl hover:shadow-2xl animate-fadeInUp" style="animation-delay: 0.8s; animation-fill-mode: backwards;">
+                <!-- Decorative gradient -->
+                <div class="absolute inset-0 bg-gradient-to-br from-accent-blue/10 via-transparent to-rose/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <!-- Corner decorations -->
+                <div class="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-soft-blue/30 rounded-tl-lg"></div>
+                <div class="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-rose/30 rounded-br-lg"></div>
+                
+                <p class="relative z-10 text-center font-cormorant text-lg sm:text-xl md:text-2xl leading-relaxed text-white/90">
+                    On this special day, I want you to know that 
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-soft-blue via-accent-blue to-soft-blue italic font-semibold">you are the most beautiful gift life has given me</span>. 
+                    Every moment with you feels like magic—your smile lights up my world, and your love fills my heart with endless joy.
+                    <br><br>
+                    May this year bring you all the happiness, dreams, and love you deserve. Here's to many more birthdays together, my love. 
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose via-gold to-rose italic font-semibold">Forever yours 💙</span>
+                </p>
+            </div>
+            
+            <!-- Floating elements -->
+            <div class="absolute -top-6 -left-6 w-12 h-12 bg-accent-blue/20 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
+            <div class="absolute -bottom-6 -right-6 w-12 h-12 bg-rose/20 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
+        </div>
+
+        <div class="flex flex-wrap gap-3 sm:gap-4 justify-center mt-8 animate-fadeInUp" style="animation-delay: 1.2s; animation-fill-mode: backwards;">
+            <button onclick="showSurprise()" class="group relative px-6 sm:px-8 py-3 sm:py-4 font-playfair text-base sm:text-lg font-semibold text-white rounded-full overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl flex items-center gap-2 sm:gap-3">
+                <!-- Gradient background -->
+                <div class="absolute inset-0 bg-gradient-to-r from-accent-blue via-primary-blue to-accent-blue bg-[length:200%_100%] group-hover:bg-[position:100%_0] transition-all duration-500"></div>
+                
+                <!-- Glass overlay -->
+                <div class="absolute inset-0 bg-white/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <!-- Border glow -->
+                <div class="absolute inset-0 rounded-full border-2 border-soft-blue/50 group-hover:border-soft-blue shadow-[0_0_20px_rgba(126,184,218,0.4)] group-hover:shadow-[0_0_30px_rgba(126,184,218,0.8)] transition-all duration-300"></div>
+                
+                <!-- Content -->
+                <svg class="relative z-10 w-5 h-5 sm:w-6 sm:h-6 group-hover:animate-pulse" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span class="relative z-10">Open My Heart</span>
+            </button>
+            
+            <button onclick="toggleConfetti()" class="group relative px-6 sm:px-8 py-3 sm:py-4 font-playfair text-base sm:text-lg font-semibold rounded-full overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl flex items-center gap-2 sm:gap-3">
+                <!-- Glass background -->
+                <div class="absolute inset-0 bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-md"></div>
+                
+                <!-- Border -->
+                <div class="absolute inset-0 rounded-full border-2 border-accent-blue/60 group-hover:border-accent-blue transition-colors duration-300"></div>
+                
+                <!-- Hover gradient -->
+                <div class="absolute inset-0 bg-gradient-to-r from-accent-blue/20 to-rose/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <!-- Content -->
+                <span class="relative z-10 text-2xl group-hover:scale-125 transition-transform duration-300">🎉</span>
+                <span class="relative z-10 text-accent-blue group-hover:text-white transition-colors duration-300">Celebrate</span>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Birthday Music -->
+    <audio id="birthdayMusic" loop>
+        <source src="birthday.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Premium Modal with Glassmorphism -->
+    <div id="quoteModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 md:p-8">
+        <!-- Backdrop with full blur -->
+        <div class="modal-backdrop absolute inset-0 bg-black/85 backdrop-blur-3xl" onclick="closeModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="modal-content relative z-10 w-full max-w-md mx-auto perspective-1000">
+            <!-- Glass effect container -->
+            <div class="relative bg-gradient-to-br from-primary-blue/40 via-mid-dark/50 to-accent-blue/30 backdrop-blur-xl rounded-3xl border border-soft-blue/30 shadow-2xl overflow-hidden">
+                <!-- Animated gradient overlay -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-accent-blue/20 via-transparent to-rose/20 animate-pulse"></div>
+                
+                <!-- Glass reflection effect -->
+                <div class="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-white/10 to-transparent rounded-t-3xl"></div>
+                
+                <!-- Content -->
+                <div class="relative z-10 p-5 sm:p-6">
+                    <!-- Close button -->
+                    <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 hover:rotate-90 group">
+                        <svg class="w-5 h-5 text-white/80 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Header with animated heart -->
+                    <div class="text-center mb-6">
+                        <div class="inline-block mb-3">
+                            <svg class="modal-heart w-12 h-12 sm:w-14 sm:h-14 text-rose drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-playfair text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-soft-blue via-rose to-gold mb-2">
+                            For My Love
+                        </h3>
+                        <p class="font-cormorant text-base sm:text-lg text-soft-blue/90 italic mb-3">
+                            Swipe to read each message 💙
+                        </p>
+                    </div>
+
+                    <!-- Tinder-Style Card Stack -->
+                    <div class="relative mb-8">
+                        <!-- Card Stack Container -->
+                        <div id="cardStack" class="card-stack">
+                                <!-- Quote 1 -->
+                                <div class="quote-card">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
+                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                            "Distance means so little when someone means so much. You are always in my heart, no matter how far apart we are."
+                                        </p>
+                                        <div class="flex items-center justify-center gap-2">
+                                            <div class="h-0.5 w-10 bg-gradient-to-r from-rose to-transparent"></div>
+                                            <span class="text-rose text-sm font-semibold tracking-widest">FOREVER CLOSE</span>
+                                            <div class="h-0.5 w-10 bg-gradient-to-l from-rose to-transparent"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Quote 2 -->
+                                <div class="quote-card">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
+                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                            "Every mile between us is a reminder of how strong our love is. Happy Birthday to my long-distance love!"
+                                        </p>
+                                        <div class="flex items-center justify-center gap-2">
+                                            <div class="h-0.5 w-10 bg-gradient-to-r from-accent-blue to-transparent"></div>
+                                            <span class="text-accent-blue text-sm font-semibold tracking-widest">UNBREAKABLE BOND</span>
+                                            <div class="h-0.5 w-10 bg-gradient-to-l from-accent-blue to-transparent"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Quote 3 -->
+                                <div class="quote-card">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
+                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                            "Though we are miles apart, you are always here in my heart. Can't wait for the day distance won't matter anymore."
+                                        </p>
+                                        <div class="flex items-center justify-center gap-2">
+                                            <div class="h-0.5 w-10 bg-gradient-to-r from-gold to-transparent"></div>
+                                            <span class="text-gold text-sm font-semibold tracking-widest">COUNTING DAYS</span>
+                                            <div class="h-0.5 w-10 bg-gradient-to-l from-gold to-transparent"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Quote 4 -->
+                                <div class="quote-card">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
+                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                            "Being apart is hard, but knowing you're mine makes it all worth it. Happy Birthday, my beautiful Jothisa!"
+                                        </p>
+                                        <div class="flex items-center justify-center gap-2">
+                                            <div class="h-0.5 w-10 bg-gradient-to-r from-soft-blue to-transparent"></div>
+                                            <span class="text-soft-blue text-sm font-semibold tracking-widest">WORTH THE WAIT</span>
+                                            <div class="h-0.5 w-10 bg-gradient-to-l from-soft-blue to-transparent"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Quote 5 -->
+                                <div class="quote-card">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
+                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                            "In your eyes, I found my home. In your heart, I found my love. Distance can't change what we have."
+                                        </p>
+                                        <div class="flex items-center justify-center gap-2">
+                                            <div class="h-0.5 w-10 bg-gradient-to-r from-rose to-transparent"></div>
+                                            <span class="text-rose text-sm font-semibold tracking-widest">MY HOME</span>
+                                            <div class="h-0.5 w-10 bg-gradient-to-l from-rose to-transparent"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Quote 6 -->
+                                <div class="quote-card">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
+                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                            "The distance doesn't scare me, because I know we're working towards forever. I love you more each day."
+                                        </p>
+                                        <div class="flex items-center justify-center gap-2">
+                                            <div class="h-0.5 w-10 bg-gradient-to-r from-accent-blue to-transparent"></div>
+                                            <span class="text-accent-blue text-sm font-semibold tracking-widest">TOWARD FOREVER</span>
+                                            <div class="h-0.5 w-10 bg-gradient-to-l from-accent-blue to-transparent"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Quote 7 -->
+                                <div class="quote-card">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
+                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                            "Every text, every call, every moment we share makes the distance disappear. You make my heart smile across the miles."
+                                        </p>
+                                        <div class="flex items-center justify-center gap-2">
+                                            <div class="h-0.5 w-10 bg-gradient-to-r from-gold to-transparent"></div>
+                                            <span class="text-gold text-sm font-semibold tracking-widest">CONNECTED HEARTS</span>
+                                            <div class="h-0.5 w-10 bg-gradient-to-l from-gold to-transparent"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Quote 8 -->
+                                <div class="quote-card">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
+                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                            "On this special day, I wish I could be there to hold you. But know that my love travels across any distance to reach you."
+                                        </p>
+                                        <div class="flex items-center justify-center gap-2">
+                                            <div class="h-0.5 w-10 bg-gradient-to-r from-soft-blue to-transparent"></div>
+                                            <span class="text-soft-blue text-sm font-semibold tracking-widest">ALWAYS WITH YOU</span>
+                                            <div class="h-0.5 w-10 bg-gradient-to-l from-soft-blue to-transparent"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="text-center space-y-3">
+                        <p class="text-white/50 text-sm font-cormorant italic">
+                            ← Swipe or use arrow keys →
+                        </p>
+                        <button onclick="closeModal()" class="px-6 py-2.5 bg-gradient-to-r from-white/10 to-white/5 hover:from-white/20 hover:to-white/10 text-white/80 hover:text-white font-cormorant text-base font-semibold rounded-full border border-white/20 hover:border-white/40 backdrop-blur-sm transition-all duration-300">
+                            Close
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Decorative elements -->
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-accent-blue/20 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-rose/20 rounded-full blur-3xl"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const birthdayMusic = document.getElementById('birthdayMusic');
+        const modal = document.getElementById('quoteModal');
+        const cardStack = document.getElementById('cardStack');
+        
+        let cards = [];
+        let currentCard = null;
+        let startX = 0;
+        let startY = 0;
+        let moveX = 0;
+        let isDragging = false;
+
+        function initCards() {
+            cards = Array.from(cardStack.querySelectorAll('.quote-card'));
+            if (cards.length > 0) {
+                currentCard = cards[0];
+                setupCardListeners(currentCard);
+            }
+        }
+
+        function setupCardListeners(card) {
+            if (!card) return;
+
+            // Touch events
+            card.addEventListener('touchstart', handleDragStart);
+            card.addEventListener('touchmove', handleDragMove);
+            card.addEventListener('touchend', handleDragEnd);
+
+            // Mouse events
+            card.addEventListener('mousedown', handleDragStart);
+            document.addEventListener('mousemove', handleDragMove);
+            document.addEventListener('mouseup', handleDragEnd);
+        }
+
+        function handleDragStart(e) {
+            if (e.type === 'mousedown' && e.button !== 0) return;
+            
+            isDragging = true;
+            currentCard.classList.add('swiping');
+            
+            const touch = e.type === 'touchstart' ? e.touches[0] : e;
+            startX = touch.clientX;
+            startY = touch.clientY;
+            
+            e.preventDefault();
+        }
+
+        function handleDragMove(e) {
+            if (!isDragging) return;
+            
+            const touch = e.type === 'touchmove' ? e.touches[0] : e;
+            moveX = touch.clientX - startX;
+            const moveY = touch.clientY - startY;
+            
+            // Calculate rotation based on horizontal movement
+            const rotate = moveX * 0.1;
+            
+            // Apply transform
+            currentCard.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${rotate}deg)`;
+            
+            // Add subtle opacity change
+            const opacity = 1 - Math.abs(moveX) / 300;
+            currentCard.style.opacity = Math.max(0.5, opacity);
+        }
+
+        function handleDragEnd(e) {
+            if (!isDragging) return;
+            
+            isDragging = false;
+            currentCard.classList.remove('swiping');
+            
+            const threshold = 100;
+            
+            if (Math.abs(moveX) > threshold) {
+                // Swipe detected - remove card
+                removeCard(moveX > 0 ? 'right' : 'left');
+            } else {
+                // Return to position
+                currentCard.style.transform = '';
+                currentCard.style.opacity = '';
+            }
+            
+            moveX = 0;
+        }
+
+        function removeCard(direction) {
+            currentCard.classList.add('removing');
+            currentCard.classList.add(direction === 'right' ? 'swipe-right' : 'swipe-left');
+            
+            setTimeout(() => {
+                // Remove card from DOM
+                if (currentCard && currentCard.parentNode) {
+                    currentCard.remove();
+                }
+                
+                // Get next card
+                cards = Array.from(cardStack.querySelectorAll('.quote-card'));
+                
+                if (cards.length > 0) {
+                    currentCard = cards[0];
+                    setupCardListeners(currentCard);
+                } else {
+                    // All cards swiped - show completion message
+                    showCompletionMessage();
+                }
+            }, 400);
+        }
+
+        function showCompletionMessage() {
+            const message = document.createElement('div');
+            message.className = 'w-full h-full flex flex-col items-center justify-center';
+            message.innerHTML = `
+                <div class="text-center space-y-6 animate-fadeInUp">
+                    <svg class="w-24 h-24 mx-auto text-rose animate-pulse" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <h3 class="font-playfair text-3xl md:text-4xl text-white font-bold">
+                        You've read all my messages! 💙
+                    </h3>
+                    <p class="font-cormorant text-xl text-white/80">
+                        I love you, Jothisa. Happy Birthday!
+                    </p>
+                    <button onclick="closeModal()" class="mt-8 px-8 py-3 bg-gradient-to-r from-accent-blue to-primary-blue text-white font-playfair font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                        Close
+                    </button>
+                </div>
+            `;
+            cardStack.appendChild(message);
+        }
+
+        function showSurprise() {
+            // Show modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Initialize cards
+            initCards();
+            
+            // Play birthday music
+            birthdayMusic.play().catch(e => console.log('Autoplay blocked:', e));
+            
+            // Trigger confetti
+            toggleConfetti();
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            // Hide modal
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            
+            // Stop birthday music
+            birthdayMusic.pause();
+            birthdayMusic.currentTime = 0;
+            
+            // Reset cards
+            const allCards = cardStack.querySelectorAll('.quote-card, div');
+            allCards.forEach(card => card.remove());
+            
+            // Restore original cards
+            const quotes = [
+                { text: "Distance means so little when someone means so much. You are always in my heart, no matter how far apart we are.", tag: "FOREVER CLOSE", color: "rose" },
+                { text: "Every mile between us is a reminder of how strong our love is. Happy Birthday to my long-distance love!", tag: "UNBREAKABLE BOND", color: "accent-blue" },
+                { text: "Though we are miles apart, you are always here in my heart. Can't wait for the day distance won't matter anymore.", tag: "COUNTING DAYS", color: "gold" },
+                { text: "Being apart is hard, but knowing you're mine makes it all worth it. Happy Birthday, my beautiful Jothisa!", tag: "WORTH THE WAIT", color: "soft-blue" },
+                { text: "In your eyes, I found my home. In your heart, I found my love. Distance can't change what we have.", tag: "MY HOME", color: "rose" },
+                { text: "The distance doesn't scare me, because I know we're working towards forever. I love you more each day.", tag: "TOWARD FOREVER", color: "accent-blue" },
+                { text: "Every text, every call, every moment we share makes the distance disappear. You make my heart smile across the miles.", tag: "CONNECTED HEARTS", color: "gold" },
+                { text: "On this special day, I wish I could be there to hold you. But know that my love travels across any distance to reach you.", tag: "ALWAYS WITH YOU", color: "soft-blue" }
+            ];
+            
+            quotes.forEach(quote => {
+                const card = document.createElement('div');
+                card.className = 'quote-card';
+                card.innerHTML = `
+                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
+                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                            "${quote.text}"
+                        </p>
+                        <div class="flex items-center justify-center gap-2">
+                            <div class="h-0.5 w-10 bg-gradient-to-r from-${quote.color} to-transparent"></div>
+                            <span class="text-${quote.color} text-sm font-semibold tracking-widest">${quote.tag}</span>
+                            <div class="h-0.5 w-10 bg-gradient-to-l from-${quote.color} to-transparent"></div>
+                        </div>
+                    </div>
+                `;
+                cardStack.appendChild(card);
+            });
+            
+            // Allow body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        function toggleConfetti() {
+            // Enhanced confetti effect
+            const colors = ['#4a90d9', '#e8b4b8', '#d4af37', '#7eb8da'];
+            for (let i = 0; i < 80; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    const size = Math.random() * 8 + 5;
+                    confetti.style.cssText = `
+                        position: fixed; 
+                        width: ${size}px; 
+                        height: ${size}px; 
+                        background: ${colors[Math.floor(Math.random() * colors.length)]};
+                        left: ${Math.random() * 100}vw; 
+                        top: -20px;
+                        border-radius: ${Math.random() > 0.5 ? '50%' : '0'};
+                        animation: confetti ${2 + Math.random() * 3}s ease-out forwards;
+                        z-index: 9999; 
+                        pointer-events: none;
+                        box-shadow: 0 0 10px rgba(255,255,255,0.3);
+                    `;
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 5000);
+                }, i * 30);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (modal.classList.contains('hidden')) return;
+            
+            if (e.key === 'ArrowLeft') {
+                if (currentCard) removeCard('left');
+            } else if (e.key === 'ArrowRight') {
+                if (currentCard) removeCard('right');
+            } else if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Add confetti keyframes dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes confetti {
+                0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+            }
+            .perspective-1000 {
+                perspective: 1000px;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
