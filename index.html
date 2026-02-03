@@ -280,24 +280,39 @@
             opacity: 0 !important;
         }
 
-        /* Stack effect - cards behind */
+        /* Stack effect - only show subtle shadow of cards behind */
         .quote-card:nth-child(2) {
             transform: scale(0.97) translateY(8px);
-            opacity: 0.3;
             z-index: 1;
             pointer-events: none;
         }
 
+        .quote-card:nth-child(2)::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 1.5rem;
+            z-index: 10;
+        }
+
         .quote-card:nth-child(3) {
             transform: scale(0.94) translateY(16px);
-            opacity: 0.15;
             z-index: 0;
             pointer-events: none;
         }
 
+        .quote-card:nth-child(3)::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 1.5rem;
+            z-index: 10;
+        }
+
         .quote-card:nth-child(n+4) {
-            opacity: 0;
-            visibility: hidden;
+            display: none;
             pointer-events: none;
         }
 
@@ -487,8 +502,8 @@
                 <!-- Content -->
                 <div class="relative z-10 p-5 sm:p-6">
                     <!-- Close button -->
-                    <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 hover:rotate-90 group">
-                        <svg class="w-5 h-5 text-white/80 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button onclick="closeModal()" class="absolute top-4 right-4 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 hover:rotate-90 group cursor-pointer">
+                        <svg class="w-5 h-5 text-white/80 group-hover:text-white pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
@@ -514,13 +529,18 @@
                         <div id="cardStack" class="card-stack">
                                 <!-- Quote 1 -->
                                 <div class="quote-card">
-                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
-                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-primary-blue/60 via-mid-dark/70 to-accent-blue/50 backdrop-blur-xl border-2 border-soft-blue/40 shadow-2xl flex flex-col justify-center relative overflow-hidden">
+                                        <!-- Glass reflection -->
+                                        <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+                                        <!-- Gradient overlay -->
+                                        <div class="absolute inset-0 bg-gradient-to-tr from-accent-blue/20 via-transparent to-rose/20 pointer-events-none"></div>
+                                        
+                                        <p class="relative z-10 font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6 drop-shadow-lg">
                                             "Distance means so little when someone means so much. You are always in my heart, no matter how far apart we are."
                                         </p>
-                                        <div class="flex items-center justify-center gap-2">
+                                        <div class="relative z-10 flex items-center justify-center gap-2">
                                             <div class="h-0.5 w-10 bg-gradient-to-r from-rose to-transparent"></div>
-                                            <span class="text-rose text-sm font-semibold tracking-widest">FOREVER CLOSE</span>
+                                            <span class="text-rose text-sm font-semibold tracking-widest drop-shadow-md">FOREVER CLOSE</span>
                                             <div class="h-0.5 w-10 bg-gradient-to-l from-rose to-transparent"></div>
                                         </div>
                                     </div>
@@ -528,13 +548,15 @@
 
                                 <!-- Quote 2 -->
                                 <div class="quote-card">
-                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
-                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-primary-blue/60 via-mid-dark/70 to-accent-blue/50 backdrop-blur-xl border-2 border-soft-blue/40 shadow-2xl flex flex-col justify-center relative overflow-hidden">
+                                        <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+                                        <div class="absolute inset-0 bg-gradient-to-tr from-accent-blue/20 via-transparent to-rose/20 pointer-events-none"></div>
+                                        <p class="relative z-10 font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6 drop-shadow-lg">
                                             "Every mile between us is a reminder of how strong our love is. Happy Birthday to my long-distance love!"
                                         </p>
-                                        <div class="flex items-center justify-center gap-2">
+                                        <div class="relative z-10 flex items-center justify-center gap-2">
                                             <div class="h-0.5 w-10 bg-gradient-to-r from-accent-blue to-transparent"></div>
-                                            <span class="text-accent-blue text-sm font-semibold tracking-widest">UNBREAKABLE BOND</span>
+                                            <span class="text-accent-blue text-sm font-semibold tracking-widest drop-shadow-md">UNBREAKABLE BOND</span>
                                             <div class="h-0.5 w-10 bg-gradient-to-l from-accent-blue to-transparent"></div>
                                         </div>
                                     </div>
@@ -542,13 +564,15 @@
 
                                 <!-- Quote 3 -->
                                 <div class="quote-card">
-                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
-                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-primary-blue/60 via-mid-dark/70 to-accent-blue/50 backdrop-blur-xl border-2 border-soft-blue/40 shadow-2xl flex flex-col justify-center relative overflow-hidden">
+                                        <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+                                        <div class="absolute inset-0 bg-gradient-to-tr from-accent-blue/20 via-transparent to-rose/20 pointer-events-none"></div>
+                                        <p class="relative z-10 font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6 drop-shadow-lg">
                                             "Though we are miles apart, you are always here in my heart. Can't wait for the day distance won't matter anymore."
                                         </p>
-                                        <div class="flex items-center justify-center gap-2">
+                                        <div class="relative z-10 flex items-center justify-center gap-2">
                                             <div class="h-0.5 w-10 bg-gradient-to-r from-gold to-transparent"></div>
-                                            <span class="text-gold text-sm font-semibold tracking-widest">COUNTING DAYS</span>
+                                            <span class="text-gold text-sm font-semibold tracking-widest drop-shadow-md">COUNTING DAYS</span>
                                             <div class="h-0.5 w-10 bg-gradient-to-l from-gold to-transparent"></div>
                                         </div>
                                     </div>
@@ -556,13 +580,15 @@
 
                                 <!-- Quote 4 -->
                                 <div class="quote-card">
-                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
-                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-primary-blue/60 via-mid-dark/70 to-accent-blue/50 backdrop-blur-xl border-2 border-soft-blue/40 shadow-2xl flex flex-col justify-center relative overflow-hidden">
+                                        <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+                                        <div class="absolute inset-0 bg-gradient-to-tr from-accent-blue/20 via-transparent to-rose/20 pointer-events-none"></div>
+                                        <p class="relative z-10 font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6 drop-shadow-lg">
                                             "Being apart is hard, but knowing you're mine makes it all worth it. Happy Birthday, my beautiful Jothisa!"
                                         </p>
-                                        <div class="flex items-center justify-center gap-2">
+                                        <div class="relative z-10 flex items-center justify-center gap-2">
                                             <div class="h-0.5 w-10 bg-gradient-to-r from-soft-blue to-transparent"></div>
-                                            <span class="text-soft-blue text-sm font-semibold tracking-widest">WORTH THE WAIT</span>
+                                            <span class="text-soft-blue text-sm font-semibold tracking-widest drop-shadow-md">WORTH THE WAIT</span>
                                             <div class="h-0.5 w-10 bg-gradient-to-l from-soft-blue to-transparent"></div>
                                         </div>
                                     </div>
@@ -570,13 +596,15 @@
 
                                 <!-- Quote 5 -->
                                 <div class="quote-card">
-                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
-                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-primary-blue/60 via-mid-dark/70 to-accent-blue/50 backdrop-blur-xl border-2 border-soft-blue/40 shadow-2xl flex flex-col justify-center relative overflow-hidden">
+                                        <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+                                        <div class="absolute inset-0 bg-gradient-to-tr from-accent-blue/20 via-transparent to-rose/20 pointer-events-none"></div>
+                                        <p class="relative z-10 font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6 drop-shadow-lg">
                                             "In your eyes, I found my home. In your heart, I found my love. Distance can't change what we have."
                                         </p>
-                                        <div class="flex items-center justify-center gap-2">
+                                        <div class="relative z-10 flex items-center justify-center gap-2">
                                             <div class="h-0.5 w-10 bg-gradient-to-r from-rose to-transparent"></div>
-                                            <span class="text-rose text-sm font-semibold tracking-widest">MY HOME</span>
+                                            <span class="text-rose text-sm font-semibold tracking-widest drop-shadow-md">MY HOME</span>
                                             <div class="h-0.5 w-10 bg-gradient-to-l from-rose to-transparent"></div>
                                         </div>
                                     </div>
@@ -584,13 +612,15 @@
 
                                 <!-- Quote 6 -->
                                 <div class="quote-card">
-                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
-                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-primary-blue/60 via-mid-dark/70 to-accent-blue/50 backdrop-blur-xl border-2 border-soft-blue/40 shadow-2xl flex flex-col justify-center relative overflow-hidden">
+                                        <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+                                        <div class="absolute inset-0 bg-gradient-to-tr from-accent-blue/20 via-transparent to-rose/20 pointer-events-none"></div>
+                                        <p class="relative z-10 font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6 drop-shadow-lg">
                                             "The distance doesn't scare me, because I know we're working towards forever. I love you more each day."
                                         </p>
-                                        <div class="flex items-center justify-center gap-2">
+                                        <div class="relative z-10 flex items-center justify-center gap-2">
                                             <div class="h-0.5 w-10 bg-gradient-to-r from-accent-blue to-transparent"></div>
-                                            <span class="text-accent-blue text-sm font-semibold tracking-widest">TOWARD FOREVER</span>
+                                            <span class="text-accent-blue text-sm font-semibold tracking-widest drop-shadow-md">TOWARD FOREVER</span>
                                             <div class="h-0.5 w-10 bg-gradient-to-l from-accent-blue to-transparent"></div>
                                         </div>
                                     </div>
@@ -598,13 +628,15 @@
 
                                 <!-- Quote 7 -->
                                 <div class="quote-card">
-                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
-                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-primary-blue/60 via-mid-dark/70 to-accent-blue/50 backdrop-blur-xl border-2 border-soft-blue/40 shadow-2xl flex flex-col justify-center relative overflow-hidden">
+                                        <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+                                        <div class="absolute inset-0 bg-gradient-to-tr from-accent-blue/20 via-transparent to-rose/20 pointer-events-none"></div>
+                                        <p class="relative z-10 font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6 drop-shadow-lg">
                                             "Every text, every call, every moment we share makes the distance disappear. You make my heart smile across the miles."
                                         </p>
-                                        <div class="flex items-center justify-center gap-2">
+                                        <div class="relative z-10 flex items-center justify-center gap-2">
                                             <div class="h-0.5 w-10 bg-gradient-to-r from-gold to-transparent"></div>
-                                            <span class="text-gold text-sm font-semibold tracking-widest">CONNECTED HEARTS</span>
+                                            <span class="text-gold text-sm font-semibold tracking-widest drop-shadow-md">CONNECTED HEARTS</span>
                                             <div class="h-0.5 w-10 bg-gradient-to-l from-gold to-transparent"></div>
                                         </div>
                                     </div>
@@ -612,13 +644,15 @@
 
                                 <!-- Quote 8 -->
                                 <div class="quote-card">
-                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
-                                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-primary-blue/60 via-mid-dark/70 to-accent-blue/50 backdrop-blur-xl border-2 border-soft-blue/40 shadow-2xl flex flex-col justify-center relative overflow-hidden">
+                                        <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+                                        <div class="absolute inset-0 bg-gradient-to-tr from-accent-blue/20 via-transparent to-rose/20 pointer-events-none"></div>
+                                        <p class="relative z-10 font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6 drop-shadow-lg">
                                             "On this special day, I wish I could be there to hold you. But know that my love travels across any distance to reach you."
                                         </p>
-                                        <div class="flex items-center justify-center gap-2">
+                                        <div class="relative z-10 flex items-center justify-center gap-2">
                                             <div class="h-0.5 w-10 bg-gradient-to-r from-soft-blue to-transparent"></div>
-                                            <span class="text-soft-blue text-sm font-semibold tracking-widest">ALWAYS WITH YOU</span>
+                                            <span class="text-soft-blue text-sm font-semibold tracking-widest drop-shadow-md">ALWAYS WITH YOU</span>
                                             <div class="h-0.5 w-10 bg-gradient-to-l from-soft-blue to-transparent"></div>
                                         </div>
                                     </div>
@@ -822,13 +856,15 @@
                 const card = document.createElement('div');
                 card.className = 'quote-card';
                 card.innerHTML = `
-                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl flex flex-col justify-center">
-                        <p class="font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6">
+                    <div class="w-full h-full p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-primary-blue/60 via-mid-dark/70 to-accent-blue/50 backdrop-blur-xl border-2 border-soft-blue/40 shadow-2xl flex flex-col justify-center relative overflow-hidden">
+                        <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-accent-blue/20 via-transparent to-rose/20 pointer-events-none"></div>
+                        <p class="relative z-10 font-cormorant text-xl sm:text-2xl md:text-3xl text-white leading-relaxed italic text-center mb-6 drop-shadow-lg">
                             "${quote.text}"
                         </p>
-                        <div class="flex items-center justify-center gap-2">
+                        <div class="relative z-10 flex items-center justify-center gap-2">
                             <div class="h-0.5 w-10 bg-gradient-to-r from-${quote.color} to-transparent"></div>
-                            <span class="text-${quote.color} text-sm font-semibold tracking-widest">${quote.tag}</span>
+                            <span class="text-${quote.color} text-sm font-semibold tracking-widest drop-shadow-md">${quote.tag}</span>
                             <div class="h-0.5 w-10 bg-gradient-to-l from-${quote.color} to-transparent"></div>
                         </div>
                     </div>
